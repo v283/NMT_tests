@@ -5,8 +5,8 @@
 Для заповнення бази даних було написано парсер (https://github.com/v283/Parser)
 Також додатково було використано такі NuGet Packages:
 
--sqlite-net-pcl
--SQLitePCLRaw.provider.dynamic_cdecl
+- sqlite-net-pcl
+- SQLitePCLRaw.provider.dynamic_cdecl
 
 
 
