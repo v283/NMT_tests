@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NMT_tests.Pages.SettingsPage"
+             Title="Налаштування">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+
+
+
+            <Label x:Name="myFontSizeLabel" HorizontalOptions="Center"/>
+
+            <Stepper Maximum="50" Minimum="8" x:Name="fontStepper"
+                 Increment="1"
+                 HorizontalOptions="Center"
+                 ValueChanged="OnStepperValueChanged" />
+
+
+            <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto" Margin="15,25" HorizontalOptions="Center">
+                <Image Source="reload1.png" HeightRequest="40" WidthRequest="40" Grid.Column="0" Grid.Row="0"/>
+                <Button x:Name="reloadallBtn" Text="Скинути все" HorizontalOptions="Start" FontSize="27" TextColor="Black"  BorderColor="Transparent" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+
+     
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

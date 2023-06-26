@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NMT_tests.Pages.MainPage"
+             Title="NMT_Learn">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Grid BackgroundColor="{StaticResource SubjectBtnColor}" RowDefinitions="100, 100, 100" ColumnDefinitions="*, *" RowSpacing="2" ColumnSpacing="2">
+                <Button CornerRadius="0" Grid.Row="0" Grid.Column="0" x:Name="btnNMT" Grid.ColumnSpan="2" Text="Національний мультитест"/>
+                <Button CornerRadius="0" Grid.Row="1" Grid.Column="0" Text="Українська мова" x:Name="btnUkr" />
+                <Button CornerRadius="0" Grid.Row="1" Grid.Column="1" Text="Математика" x:Name="btnMath"/>
+                <Button CornerRadius="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Історія України" x:Name="btnHistory"/>
+                <!--<Button CornerRadius="0" Grid.Row="2" Grid.Column="1" Text="Англійська мова" x:Name="btnEng"/>-->
+            </Grid>
+
+            <Grid  Margin="5, 25" RowDefinitions="*, *, * ">
+                <Label FontSize="45" TextColor="{StaticResource Black}" Grid.Row="0" Text="❝"/>
+                <Label x:Name="quoteLabel" FontSize="27" FontFamily="Lobster"  Grid.Row="1" Text="Життя – це не тільки навчання, але якщо ти не можеш пройти навіть через цю її частину, як ти будеш знати, на що здатний?"/>
+                <Label FontSize="45" TextColor="{StaticResource BlueViolet}" Text="❝" Grid.Row="2" HorizontalOptions="End" />
+            </Grid>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

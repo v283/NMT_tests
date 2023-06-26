@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NMT_tests.Pages.LikePage"
+             Title="Збережене">
+
+    <StackLayout Padding="10" Spacing="5">
+
+        <ListView x:Name="likeListView" RowHeight="90">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell >
+                        <Border StrokeThickness="3" BackgroundColor="Transparent">
+                            <Border.StrokeShape >
+                                <RoundRectangle CornerRadius="15" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*" RowDefinitions="Auto,*" >
+                                <Label Text="{Binding Topic}" FontSize="19" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="5,0"/>
+                                <Label Text="{Binding AditionalData}" HorizontalOptions="Start" VerticalOptions="End" Grid.Column="0" Grid.Row="1" Margin="7"/>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+</ContentPage>

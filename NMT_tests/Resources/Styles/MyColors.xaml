@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="SubjectBtnColor">#330066</Color>
+    <Color x:Key="BlueViolet">BlueViolet</Color>
+    <Color x:Key="GreenBar">#3fff00</Color>
+    <Color x:Key="DarkGreenBar">#228b22</Color>
+    <Color x:Key="OrangeBar">#ed820e</Color>
+    <Color x:Key="MyRed">#fd0820</Color>
+    <Color x:Key="MyLowGrey">#eeeeee"</Color>
+</ResourceDictionary>

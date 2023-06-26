@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NMT_tests.Pages.TaskPage"
+             Title="Тест">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="#8C8C8C"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <ScrollView Orientation="Horizontal">
+                <HorizontalStackLayout Spacing="3" VerticalOptions="Start" x:Name="ButtonsBar">
+
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="Auto,Auto" BackgroundColor="#70db94" Margin="5" x:Name="resultGrid">
+                <Label Text="Ваш результат" x:Name="YourResult" FontSize="23" HorizontalTextAlignment="Center" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+
+                <Label FontSize="19" Text="Тема: " x:Name="topicLabel" Grid.ColumnSpan="2" Grid.Row="1" WidthRequest="350"/>
+                <Label FontSize="19" x:Name="maxMark" Text="Максимальна кількість балів: " Grid.Column="0" Grid.Row="2"/>
+                <Label FontSize="19" x:Name="takenMark"  Text="Набрана кількість балів: " Grid.Column="0" Grid.Row="3"/>
+                <Label FontSize="19" x:Name="rightPrcent" Text="Відсоток правильних: " Grid.Column="0" Grid.Row="4"/>
+
+                <Label FontSize="19" FontAttributes="Bold" x:Name="totalScore" Text="????" Grid.Column="1" Grid.Row="2"/>
+                <Label FontSize="19" FontAttributes="Bold" x:Name="userScore" Text="????" Grid.Column="1" Grid.Row="3"/>
+                <Label FontSize="19" FontAttributes="Bold" x:Name="correctPerCent" Text="????" Grid.Column="1" Grid.Row="4"/>
+
+            </Grid>
+
+            <Grid RowDefinitions="*" ColumnDefinitions="*,*" x:Name="resultButtonsGrid" IsVisible="False">
+                <Button  x:Name="saveButton" Text="Зберегти" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="{StaticResource Primary}" CornerRadius="0" WidthRequest="140" HeightRequest="30"  HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Button  x:Name="deleteButton" Text="Видалити" IsVisible="false" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="{StaticResource OrangeBar}" CornerRadius="0" WidthRequest="140" HeightRequest="30"  HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+
+                <Button IsVisible="False" x:Name="markAsDoneButton" Text="Вивчив" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="#70db94" CornerRadius="0" WidthRequest="150" HeightRequest="30"  HorizontalOptions="Start" Grid.Column="1" Grid.Row="0"/>
+                <Button IsVisible="False" x:Name="markAsNotDoneButton" Text="Не вивчив" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="{StaticResource MyRed}" CornerRadius="0" WidthRequest="140" HeightRequest="30"  HorizontalOptions="Center" Grid.Column="1" Grid.Row="0"/>
+
+            </Grid>
+
+            
+
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*, Auto" RowDefinitions="*" Margin="0, 5">
+                    <BoxView Grid.Row="0" Grid.Column="0" Color="#b096ea" HeightRequest="1.8"/>
+                    <Border  Grid.Row="0" Grid.Column="1" Stroke="#582cd4" StrokeThickness="2" >
+                        <Label x:Name="Counter" FontSize="20"  Text="Task 1 / 54" HorizontalOptions="End" Padding="2"/>
+                    </Border>
+                </Grid>
+                <Label TextType="Html" Text="Жертвою якої репресивної акції став С. Єфремов?" x:Name="TaskText"
+                       FontSize="19" Margin="5, 0" FontAttributes="None" />
+                
+                <Image x:Name="TaskImage" />
+
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto,Auto,Auto,Auto, Auto" Padding="5"  >
+                    <Label x:Name="l1" Text="1" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="l2" Text="2" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                    <Label x:Name="l3" Text="3" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"  Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="l4" Text="4" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="l5" Text="5" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                    <Label x:Name="l6" Text="6" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="5" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="l7" Text="7" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"  
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="l8" Text="8" WidthRequest="28" HeightRequest="28" FontSize="{StaticResource MyMainFontSize}"   Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" Grid.Row="7" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+
+                    <Label x:Name="a1" TextType="Html" Text=" івафініпоаофілрпмфіноQuestion is there." FontSize="{StaticResource MyMainFontSize}" Grid.Row="0" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a2" TextType="Html" Text=" It will be work." FontSize="{StaticResource MyMainFontSize}" Grid.Row="1" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a3" TextType="Html" Text=" What is always coming but never arrives? " FontSize="{StaticResource MyMainFontSize}" Grid.Row="2" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a4" TextType="Html" Text=" What can be broken but never held? " FontSize="{StaticResource MyMainFontSize}" Grid.Row="3" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a5" TextType="Html" Text=" What word is spelled incorrectly in every single dictionary?" FontSize="{StaticResource MyMainFontSize}" Grid.Row="4" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a6" TextType="Html" Text=" Question is there." FontSize="{StaticResource MyMainFontSize}" Grid.Row="5" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a7" TextType="Html" Text=" It will be work." FontSize="{StaticResource MyMainFontSize}" Grid.Row="6" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="a8" TextType="Html" Text=" What is always coming but never arrives? " FontSize="{StaticResource MyMainFontSize}" Grid.Row="7" Grid.Column="1" Margin="3, 3"/>
+                    
+                    <Label Grid.Row="8" Grid.Column="1"/>
+
+                    <Label x:Name="lA" Text="А)" FontSize="{StaticResource MyMainFontSize}" Grid.Row="9" Grid.Column="0" WidthRequest="28" HeightRequest="28" Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lB" Text="Б)" FontSize="{StaticResource MyMainFontSize}" Grid.Row="10" Grid.Column="0" WidthRequest="28" HeightRequest="28" Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lC" Text="В)" FontSize="{StaticResource MyMainFontSize}" Grid.Row="11" Grid.Column="0" WidthRequest="28" HeightRequest="28" Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lD" Text="Г)" FontSize="{StaticResource MyMainFontSize}" Grid.Row="12" Grid.Column="0" WidthRequest="28" HeightRequest="28" Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lE" Text="Д)" FontSize="{StaticResource MyMainFontSize}" Grid.Row="13" Grid.Column="0" WidthRequest="28" HeightRequest="28" Margin="3, 3"
+                           FontAttributes="Bold" BackgroundColor="#eeeeee" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                    <Label x:Name="A" TextType="Html" Text="Lunch and Dinner" FontSize="{x:StaticResource MyMainFontSize}" Grid.Row="9" Grid.Column="1"  Margin="3, 3"/>
+                    <Label x:Name="B" TextType="Html" Text="A towel." FontSize="{StaticResource MyMainFontSize}" Grid.Row="10" Grid.Column="1"  Margin="3, 3"/>
+                    <Label x:Name="C" TextType="Html" Text="A promise" FontSize="{StaticResource MyMainFontSize}" Grid.Row="11" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="D" TextType="Html" Text="It will be work." FontSize="{StaticResource MyMainFontSize}" Grid.Row="12" Grid.Column="1" Margin="3, 3"/>
+                    <Label x:Name="E" TextType="Html" Text="It will be work." FontSize="{StaticResource MyMainFontSize}" Grid.Row="13" Grid.Column="1" Margin="3, 3"/>
+
+                </Grid>
+
+
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*,*" ColumnSpacing="5" x:Name="entryGrid" >
+                    <Border Grid.Row="0" Grid.Column="0" Margin="7,0">
+                        <Entry x:Name="ent1" MaxLength="1" FontSize="17" FontAttributes="Bold"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Margin="7,0">
+                        <Entry x:Name="ent2" MaxLength="1" FontSize="17" FontAttributes="Bold"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="2" Margin="7,0">
+                        <Entry x:Name="ent3" MaxLength="1" FontSize="17" FontAttributes="Bold"/>
+                    </Border>
+                </Grid>
+                
+                
+                <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*" WidthRequest="200" ColumnSpacing="5" RowSpacing="5" Margin="5" HorizontalOptions="Start" x:Name="checkboxGrid">
+
+                    <Label x:Name="chA" Grid.Column="0" Grid.Row="0"/>
+                    <Label x:Name="chB" Text="А" FontSize="22" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" WidthRequest="28" HeightRequest="30"/>
+                    <Label x:Name="chC" Text="Б" FontSize="22" FontAttributes="Bold" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" WidthRequest="28" HeightRequest="30"/>
+                    <Label x:Name="chD" Text="В" FontSize="22" FontAttributes="Bold" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Center" WidthRequest="28" HeightRequest="30"/>
+                    <Label x:Name="chE" Text="Г" FontSize="22" FontAttributes="Bold" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" WidthRequest="28" HeightRequest="30"/>
+                    <Label x:Name="chF" Text="Д" FontSize="22" FontAttributes="Bold" Grid.Column="5" Grid.Row="0" HorizontalTextAlignment="Center" WidthRequest="28" HeightRequest="30"/>
+
+                    <Label x:Name="chl1" Text="1" FontSize="22" HeightRequest="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="1" Grid.Row="1" WidthRequest="28" HeightRequest="30" x:Name="chbtnA1" />
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="2" Grid.Row="1" WidthRequest="28" HeightRequest="30" x:Name="chbtnB1" />
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="3" Grid.Row="1" WidthRequest="28" HeightRequest="30" x:Name="chbtnC1"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="4" Grid.Row="1" WidthRequest="28" HeightRequest="30" x:Name="chbtnD1" />
+                    <Button BackgroundColor="White" TextColor="Black" Text="X" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="5" Grid.Row="1" WidthRequest="28" HeightRequest="30" x:Name="chbtnE1" />
+
+                    <Label x:Name="chl2" Text="2" FontSize="22" HeightRequest="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+
+                    <Button BackgroundColor="White" TextColor="Black" Text="X" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="1" Grid.Row="2" WidthRequest="28" HeightRequest="30" x:Name="chbtnA2"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="2" Grid.Row="2" WidthRequest="28" HeightRequest="30" x:Name="chbtnB2" />
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="3" Grid.Row="2" WidthRequest="28" HeightRequest="30" x:Name="chbtnC2"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="4" Grid.Row="2" WidthRequest="28" HeightRequest="30" x:Name="chbtnD2"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="5" Grid.Row="2" WidthRequest="28" HeightRequest="30" x:Name="chbtnE2"/>
+
+                    <Label x:Name="chl3" Text="3" FontSize="22" HeightRequest="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+
+                    <Button BackgroundColor="White" TextColor="Black" Text="X" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="1" Grid.Row="3" WidthRequest="28" HeightRequest="30" x:Name="chbtnA3"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="2" Grid.Row="3" WidthRequest="28" HeightRequest="30" x:Name="chbtnB3"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="3" Grid.Row="3" WidthRequest="28" HeightRequest="30" x:Name="chbtnC3" />
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="4" Grid.Row="3" WidthRequest="28" HeightRequest="30" x:Name="chbtnD3"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="5" Grid.Row="3" WidthRequest="28" HeightRequest="30" x:Name="chbtnE3"/>
+
+                    <Label x:Name="chl4" Text="4" FontSize="22" HeightRequest="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="4" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+
+                    <Button BackgroundColor="White" TextColor="Black" Text="X" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="1" Grid.Row="4" WidthRequest="28" HeightRequest="30" x:Name="chbtnA4"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="2" Grid.Row="4" WidthRequest="28" HeightRequest="30" x:Name="chbtnB4"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="3" Grid.Row="4" WidthRequest="28" HeightRequest="30" x:Name="chbtnC4"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="4" Grid.Row="4" WidthRequest="28" HeightRequest="30" x:Name="chbtnD4"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="3"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="5" Grid.Row="4" WidthRequest="28" HeightRequest="30" x:Name="chbtnE4"/>
+
+                    <Label x:Name="chl5" Text="5" FontSize="22" HeightRequest="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="5" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+
+                    <Button BackgroundColor="White" TextColor="Black" Text="X" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="4"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="1" Grid.Row="5" WidthRequest="28" HeightRequest="30" x:Name="chbtnA5"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="4"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="2" Grid.Row="5" WidthRequest="28" HeightRequest="30" x:Name="chbtnB5"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="4"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="3" Grid.Row="5" WidthRequest="28" HeightRequest="30" x:Name="chbtnC5"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="4"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="4" Grid.Row="5" WidthRequest="28" HeightRequest="30" x:Name="chbtnD5"/>
+                    <Button BackgroundColor="White" TextColor="Black" Text="" FontSize="26" FontAttributes="Bold" Margin="0" Padding="0" CornerRadius="4"  BorderWidth="1" BorderColor="Grey" 
+                    Grid.Column="5" Grid.Row="5" WidthRequest="28" HeightRequest="30" x:Name="chbtnE5"/>
+                </Grid>
+                <Button x:Name="FinishButton" Text="Завершити тест" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" BackgroundColor="{StaticResource MyRed}" 
+                            CornerRadius="0" WidthRequest="185" HorizontalOptions="Start" Margin="12, 3"/>
+
+                <Button x:Name="AnswerButton" Text="Відповісти" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" BackgroundColor="{StaticResource Primary}" 
+                            CornerRadius="0" WidthRequest="185" HorizontalOptions="Start" Margin="12, 3"/>
+
+                <Button x:Name="CommentButton" Text="Коментар" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="Grey" CornerRadius="0" WidthRequest="185"   HorizontalOptions="Start" Margin="12, 3"/>
+
+                <Button x:Name="MissButton" Text="Пропустити" FontSize="18" FontAttributes="None" TextColor="White" BorderWidth="0" 
+                            BackgroundColor="{StaticResource MyRed}" CornerRadius="0" WidthRequest="185"   HorizontalOptions="Start" Margin="12, 3"/>
+
+                <Label FontSize="15" x:Name="CommentLabel" Padding="6"/>
+                <Image x:Name="commentImage"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+    
+</ContentPage>

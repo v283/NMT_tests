@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="NMT_tests.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:NMT_tests.Pages"
+    x:FieldModifier="Public">
+
+    <TabBar>
+        <Tab Title="Головна" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        
+        <Tab Title="Тест" Icon="task.png"  x:Name="btnTaskPage">
+            <ShellContent x:Name="TaskPageShellContant" ContentTemplate="{DataTemplate local:TaskPage}"/>
+        </Tab>
+        
+        <Tab Title="Збережене" Icon="like.png">
+            <ShellContent ContentTemplate="{DataTemplate local:LikePage}"/>
+        </Tab>
+        
+        <Tab Title="Профіль" Icon="person.png">
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
+        </Tab>
+
+    </TabBar>
+
+</Shell>
